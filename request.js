@@ -100,11 +100,14 @@ const fetch = options => {
     case "get":
       return service({
         ...options,
-        method,
+        method: method.toLowerCase(),
         params: data
       })
     default:
-      return service(options)
+      return service({
+        ...options,
+        method: method.toLowerCase()
+      })
   }
 }
 
